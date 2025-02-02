@@ -22,7 +22,7 @@ public class UserRegisteredListener {
         this.mailSender = mailSender;
     }
 
-    @RabbitListener(queues = "userMailQueue")
+    @RabbitListener(queues = "userQueue")
     public void handleUserRegisteredEvent(UserDtoOutput user) {
         if (user == null || user.getEmail() == null) {
             logger.warning("Event received with invalid user data. Discarding event.");
